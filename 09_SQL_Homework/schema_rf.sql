@@ -1,5 +1,17 @@
+/***********************************************************/
+--PREP THE TABLE CREATION: DROP JUST IN CASE THEY PRE-EXIST:
+/***********************************************************/
+DROP TABLE IF EXISTS departments;
+DROP TABLE IF EXISTS dept_emp;
+DROP TABLE IF EXISTS dept_manager;
+DROP TABLE IF EXISTS employees;
+DROP TABLE IF EXISTS salaries;
+DROP TABLE IF EXISTS titles;
 
+
+/***********************************************************/
 --CREATE TABLES BEFORE IMPORTING:
+/***********************************************************/
 CREATE TABLE departments (
 	dept_no VARCHAR(5) PRIMARY KEY,
 	dept_name VARCHAR(25)
@@ -43,7 +55,16 @@ CREATE TABLE titles (
 );
 
 
+/***********************************************************/
+--USE GUI TO IMPORT CSV FILES INTO ABOVE TABLES
+/***********************************************************/
+
+
+
+
+/***********************************************************/
 --CONFIRM IMPORTS:
+/***********************************************************/
 SELECT * FROM departments;
 SELECT * FROM dept_emp;
 SELECT * FROM dept_manager;
