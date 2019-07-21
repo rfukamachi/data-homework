@@ -5,7 +5,8 @@
 
 /***********************************************************/
 -- 1. List the following details of each employee: 
---		employee number, last name, first name, gender, and salary.
+--		employee number, last name, first name, gender, 
+--		and salary.
 /***********************************************************/
 SELECT
 	e.emp_no AS employee_number,
@@ -27,8 +28,7 @@ FROM
 SELECT
 	emp_no,
 	first_name,
-	last_name,
-	hire_date
+	last_name
 FROM
 	employees
 WHERE
@@ -55,7 +55,7 @@ FROM
 	INNER JOIN employees e
 	ON e.emp_no = dm.emp_no
 	
-	LEFT JOIN departments d
+	INNER JOIN departments d
 	ON dm.dept_no = d.dept_no
 ;
 
@@ -72,10 +72,10 @@ SELECT
 FROM
 	employees e
 	
-	LEFT JOIN dept_emp de
+	INNER JOIN dept_emp de
 	ON e.emp_no = de.emp_no
 	
-	LEFT JOIN departments d
+	INNER JOIN departments d
 	ON de.dept_no = d.dept_no
 ;
 
@@ -92,7 +92,7 @@ FROM
 	employees e
 WHERE
 	LOWER(e.first_name) = 'hercules'
-	AND LOWER(e.last_name) LIKE 'b%'
+	AND e.last_name LIKE 'B%'
 ;
 
 
