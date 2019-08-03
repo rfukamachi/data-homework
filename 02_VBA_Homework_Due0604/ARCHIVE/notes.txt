@@ -1,0 +1,83 @@
+Sub Easy():
+    Dim ws As Worksheet
+    Dim index As Integer
+    
+    Dim lastrow As Long
+    Dim firstrow As Long
+    
+    Set ws = ActiveSheet
+    lastrow = ws.UsedRange.Rows.Count
+    
+    Dim TickerGrp(0 To (lastrow - 1)) As String
+    Dim TickerName As String
+    
+    Dim ArrayIndex As Integer
+    
+    ArrayIndex = 0
+    For index = 1 To lastrow
+        TickerName = Cells(index + 1, 1).Value
+        If ArrayIndex = 0 Then
+            TickerGrp(ArrayIndex) = TickerName
+            ArrayIndex = 1
+        ElseIf ArrayIndex > 0 Then
+            For ArrayIndex = 0 to
+        
+        End If
+        
+        
+    Next index
+    
+     
+    
+    
+    
+    
+    'Cells(Rows.Count, 1).End(x1up).Row
+    
+    MsgBox (lastrow)
+    
+End Sub
+'sht.UsedRange 'Refresh UsedRange
+'  lastrow = sht.UsedRange.Rows(sht.UsedRange.Rows.Count).Row
+
+
+
+
+
+
+
+
+&&&&&&&&&&&&&&&&&&&&&&&&&&
+
+
+Sub GetUniqueValues()
+    Dim data As Variant, temp As Variant
+    Dim obj As Object
+    Dim i As Long
+    Set obj = CreateObject("scripting.dictionary")
+    data = Selection
+    For i = 1 To UBound(data)
+        obj(data(i, 1) & "") = ""
+    Next
+    temp = obj.keys
+    Selection.ClearContents
+    Selection(1, 1).Resize(obj.Count, 1) = Application.Transpose(temp)
+End Sub
+
+
+
+********************************
+Dim tmp As String
+Dim arr() As String
+
+If Not Selection Is Nothing Then
+   For Each cell In Selection
+      If (cell <> "") And (InStr(tmp, cell) = 0) Then
+        tmp = tmp & cell & "|"
+      End If
+   Next cell
+End If
+
+If Len(tmp) > 0 Then tmp = Left(tmp, Len(tmp) - 1)
+
+arr = Split(tmp, "|")
