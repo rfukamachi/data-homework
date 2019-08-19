@@ -90,12 +90,13 @@ def scrape():
 
     # if necessary: named the columns:
     final_table_df = table_df.rename(columns={
-        0: 'fact',
-        1: 'value'
+        0: 'Fact',
+        1: 'Value'
     })
 
     # Use PANDAS to convert data to HTML table string: 
-    html_table = final_table_df.to_html(index=False)
+    html_table = final_table_df.to_html(index=False, justify="left")
+    # To remove new line characters:
     html_table.replace('\n', '')
 
 
@@ -145,6 +146,34 @@ def scrape():
     
             # Append the dictionary with the image url string and the hemisphere title to a list
             hemisphere_image_urls.append(temp_dict)
+    
+
+    
+    # As of 08/18/2019 the original link stopped working (error 404). Here is my workaround:       
+    if not hemisphere_image_urls:
+        temp_dict = {
+                "title": "Cerberus Hemisphere",
+                "img_url": "https://astrogeology.usgs.gov/cache/images/cfa62af2557222a02478f1fcd781d445_cerberus_enhanced.tif_full.jpg"
+        }
+        hemisphere_image_urls.append(temp_dict)
+        
+        temp_dict = {
+                "title": "Valles Marineris Hemisphere",
+                "img_url": "https://astrogeology.usgs.gov/cache/images/7cf2da4bf549ed01c17f206327be4db7_valles_marineris_enhanced.tif_full.jpg"
+        }
+        hemisphere_image_urls.append(temp_dict)
+        
+        temp_dict = {
+                "title": "Syrtis Major Hemisphere",
+                "img_url": "https://astrogeology.usgs.gov/cache/images/ae209b4e408bb6c3e67b6af38168cf28_syrtis_major_enhanced.tif_full.jpg"
+        }
+        hemisphere_image_urls.append(temp_dict)
+        
+        temp_dict = {
+                "title": "Schiaparelli Hemisphere",
+                "img_url": "https://astrogeology.usgs.gov/cache/images/3cdd1cbf5e0813bba925c9030d13b62e_schiaparelli_enhanced.tif_full.jpg"
+        }
+        hemisphere_image_urls.append(temp_dict)
     
     
 

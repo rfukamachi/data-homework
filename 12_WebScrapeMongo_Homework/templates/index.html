@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, inital-scale=1.0">
+    <!-- <meta http-equiv="X-UA-Compatible" content="ie=edge"> -->
+
+    <!-- Tab Title: -->
+    <title>Mission To Mars</title>
+
+    <!-- Style Sheet: -->
+    <!-- Bring in our bootstrap stylesheet -->
+    <!-- .min.css makes it machine readable, not human readable, for faster processing: -->
+    <!-------------------------------------->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <!-- Header Section with Scrape Button -->
+    <div class="container-fluid">
+        <div class="jumbotron text-center">
+            
+            <!-- Jumbo Sign:  -->
+            <h1>Mission to Mars</h1>
+
+            <!-- Button to Scrape for new data:  -->
+            <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape for New Data</a></p>
+        </div>
+    </div>
+
+    
+    <!-- Nasa Data -->
+    <h3 style="padding-left:50px;">Latest Mars News</h3>
+    <h5 style="padding-left:50px;">{{ mars_table.nasa.news_title }}</h5>
+    <p style="padding-left:50px;">{{ mars_table.nasa.news_p }}</p>
+
+    <br>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <!-- JPL Data -->
+                <h3>Featured Mars Image</h3>
+                <br>
+                <img style="height:75%; width:75%" class="feature_img" src="{{ mars_table.jpl }}" alt="feature">
+            </div>
+
+            <div class="col-md-4">
+                <!-- Mars Facts -->
+                <h3>Mars Facts</h3>
+                <table class="table table-striped">
+                        {{ mars_table.mfacts | safe }}
+                </table>
+            </div>
+    </div>
+    
+    <br>
+    <br>
+
+    <!-- Mars Hemisphere -->
+    <h3 style="text-align:center">Mars Hemispheres</h3>
+
+    <!-- Bootstrap Card Groups: -->
+    <div class="card-group">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{ mars_table.mhemi[0].title }}</h5>
+                <img style="height:75%; width:100%;" src="{{ mars_table.mhemi[0].img_url }}" class="card-img-top" alt="hemi_1">
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{ mars_table.mhemi[1].title }}</h5>
+                <img style="height:75%; width:100%;" src="{{ mars_table.mhemi[1].img_url }}" class="card-img-top" alt="hemi_2">
+            </div>  
+        </div>
+    </div>
+
+    <div class="card-group">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ mars_table.mhemi[2].title }}</h5>
+                    <img style="height:75%; width:100%;" src="{{ mars_table.mhemi[2].img_url }}" class="card-img-top" alt="hemi_3">
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ mars_table.mhemi[3].title }}</h5>
+                    <img style="height:75%; width:100%;" src="{{ mars_table.mhemi[3].img_url }}" class="card-img-top" alt="hemi_4">
+                </div>  
+            </div>
+        </div>
+</body>
+</html>

@@ -16,11 +16,18 @@ import scrape_mars
 #########################################
 app = Flask(__name__)
 
-app.config['MONGO_URI'] = 'mongodb://localhost:27017/mars_db'
 
+#########################################
+# connect to the Mongo DB:
+#########################################
+app.config['MONGO_URI'] = 'mongodb://localhost:27017/mars_db'
 mongo = PyMongo(app)
 
 
+#########################################
+# Home Page: To display the mars data that
+#            was scraped when pushing the button
+#########################################
 # Home Route: 
 @app.route('/')
 def index():
